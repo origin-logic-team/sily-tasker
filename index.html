@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Viewer | Origin Logic Team</title>
+    <style>
+        :root {
+            --e-paper-white: #f4f4f4;
+            --e-paper-black: #1a1a1a;
+            --slate-blue: #5f9ea0;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--e-paper-white);
+            color: var(--e-paper-black);
+            font-family: "Courier New", Courier, monospace;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        header {
+            border-bottom: 2px solid var(--e-paper-black);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--slate-blue);
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            margin: 10px 0 5px 0;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+        }
+
+        /* 內容顯示區 */
+        #content-box {
+            white-space: pre-wrap;      /* 保留文字檔的換行與空白 */
+            word-wrap: break-word;     /* 自動斷行避免溢出 */
+            background-color: #ffffff;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            min-height: 300px;
+            box-shadow: 4px 4px 0px var(--border-color);
+        }
+
+        .loading-text {
+            color: #888;
+            font-style: italic;
+        }
+
+        .error-text {
+            color: #b22222;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 0.8rem;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <a href="https://origin-logic-team.github.io" class="back-link">← BACK TO HUB</a>
+            <h1 id="repo-title">LOADING...</h1>
+        </header>
+
+        <main id="content-box" class="loading-text">
+            正在從後台搬運劇本內容...
+        </main>
+
+        <footer>
+            Origin Logic Team | Visualized via Unicode Standard
+        </footer>
+    </div>
+
+    <script>
+        async function fetchLog() {
+            const contentBox = document.getElementById('content-box');
+            const titleElement = document.getElementById('repo-title');
+            
+            try {
+                // 讀取同目錄下的文字檔
+                const response = await fetch('./log_content.txt');
+                
+                if (!response.ok) {
+                    throw new Error('STATUS_404: 找不到 log_content.txt');
+                }
+                
+                const rawText = await response.text();
+
+                // 1. 解析 <title> 標籤
+                const titleMatch = rawText.match(/<title>([\s\S]*?)<\/title>/);
+                const titleText = titleMatch ? titleMatch[1].trim() : "REPOSITORY_LOG";
+                
+                // 2. 移除標籤，保留純內容
+                const cleanContent = rawText.replace(/<title>[\s\S]*?<\/title>/, "").trim();
+
+                // 3. 渲染至舞台
+                titleElement.innerText = titleText;
+                contentBox.innerText = cleanContent;
+                contentBox.classList.remove('loading-text');
+
+            } catch (err) {
+                titleElement.innerText = "SYSTEM_ERROR";
+                contentBox.innerHTML = `<span class="error-text">[錯誤] ${err.message}</span><br><br>請確保該 Repo 根目錄下存在 log_content.txt 檔案。`;
+            }
+        }
+
+        // 啟動加載
+        window.onload = fetchLog;
+    </script>
+
+</body>
+</html>
