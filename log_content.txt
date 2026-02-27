@@ -1,0 +1,22 @@
+<title>SILY_TASKER</title>
+
+[2026-02-27] 原碼開發中
+--------------------------------------
+
+Project Overview: Sily Tasker
+
+Sily Tasker is an Android-based productivity tool that redefines task management through a sophisticated state-driven approach. It combines a card-style interface with a robust logic engine to ensure your workflow remains lean and focused.
+Key Features
+
+    Weighted Prioritization: Implements a weight-based algorithm to help users focus on high-impact tasks.
+
+    Gestural Reordering: Full support for manual drag-and-drop interactions to customize task sequence.
+
+    Task Metabolism: An autonomous system that handles task expiration and cleanup, preventing list bloat.
+
+    Visual Categorization: Uses a color-coding system for rapid cognitive processing of task contexts.
+
+    FSM-Driven Filtering: Utilizes a Finite State Machine (FSM) to manage complex task transitions and provide precise filtering logic.
+
+
+Status: Source Code in Development
