@@ -1,6 +1,12 @@
 <title>SILY_TASKER</title>
 
-[2026-02-27] 原碼開發中
+[2026-02-28] [SILY TASKER CONCEPT PDF HASH]
+--------------------------------------
+d36d80d3ac46a1a7195fce6c68b946d9fa0af2a3b74af05d91b8ef031f40a7f5  Sily_Tasker_Concept_Logic_Attestation.pdf
+
+
+
+[2026-02-27] 
 --------------------------------------
 
 Project Overview: Sily Tasker
