@@ -1,10 +1,32 @@
 <title>SILY_TASKER</title>
 
-[2026-02-28] [SILY TASKER CONCEPT PDF HASH]
+[2026-02-28] 
+--------------------------------------
+STATUS  : FIRST_INCEPTION_COMPLETE
+DATE    : 2026-02-28
+AUTHOR  : ORIGIN LOGIC TEAM (OLT)
+--------------------------------------
+
+[VERSION_TAG] 
+TASKER-LABTOMATO-BETA1
+
+[LOGIC_INCEPTION]
+- main.dart: First Inception (Initial Version).
+- Implementation of "The Wings (Check-in Area)" spatial logic.
+- Established "Check-in Log" mechanism: CheckInMan executes date-indexed record transcription.
+- Metabolism Engine (Silent_Janit): Completed behavior bifurcation between "One-time Tasks" and "Permanent Check-ins."
+
+[SOVEREIGN_STYLE]
+- Naming Convention: Snake-style Lower Camel Case (jan_propName).
+- Code Shape: Nested Script Style (Ladder-like structure).
+- Annotation Style: End-of-line Narrative Comments.
+
+[ATTESTATION_DATA]
+- SHA-256 HASH : [15d25b470cea157f6626bdb667783362413bef5e7c2d49e879a7bda3196a214a  main.dart]
+
+[2026-02-28]
 --------------------------------------
 d36d80d3ac46a1a7195fce6c68b946d9fa0af2a3b74af05d91b8ef031f40a7f5  Sily_Tasker_Concept_Logic_Attestation.pdf
-
-
 
 [2026-02-27] 
 --------------------------------------
@@ -15,14 +37,9 @@ Sily Tasker is an Android-based productivity tool that redefines task management
 Key Features
 
     Weighted Prioritization: Implements a weight-based algorithm to help users focus on high-impact tasks.
-
     Gestural Reordering: Full support for manual drag-and-drop interactions to customize task sequence.
-
     Task Metabolism: An autonomous system that handles task expiration and cleanup, preventing list bloat.
-
     Visual Categorization: Uses a color-coding system for rapid cognitive processing of task contexts.
-
     FSM-Driven Filtering: Utilizes a Finite State Machine (FSM) to manage complex task transitions and provide precise filtering logic.
-
 
 Status: Source Code in Development
